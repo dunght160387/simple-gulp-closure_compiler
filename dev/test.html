@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+<body>
+
+<h1>test</h1>
+
+<div id="slot_">
+    slot content
+</div>
+
+<!--support macros-->
+<script>
+    var HTML_TEMPLATE =
+            '<div style="background:BACKGROUND_COLOR; width:100%; height:100%">' +
+            '    <div id="CUSTOM_ID" style="height: 100%; display: inline-block; float:left;">' +
+            '            TAG_SCRIPT' +
+            '    </div>' +
+            '</div>';
+
+    var slot_ = document.getElementById('slot_');
+
+    renderSlot_ = function() {
+        var slotExists = slot_ && slot_.tagName === 'DIV';
+        if (!slotExists) {
+            slot_ = document.createElement('div');
+            if (!document.body) {
+                document.body = /**@type {HTMLDocument}*/ document.createElement('body');
+            }
+            document.body.appendChild(slot_);
+        }
+
+        var customId = 'tagcade-display-tag-' + Math.random() * 10e16;
+
+        slot_.innerHTML = HTML_TEMPLATE
+                .replace('BACKGROUND_COLOR', 'red')
+                .replace('CUSTOM_ID', customId)
+                .replace('TAG_SCRIPT', '<!-- display-8-auto-refresh - site-1.com -->');
+
+        var el = document.createElement('script');
+        el.setAttribute('data-tc-slot', '8');
+        el.setAttribute('data-tc-size', '400x300');
+        el.setAttribute('src', '//tags.tagcade.dev/adtag.js');
+
+        slot_.appendChild(el);
+
+//        // force dom refresh
+//        forceReloadDom(el);
+//
+//        function forceReloadDom(element) {
+//            var displayStyle = el.style.display;
+//            element.style.display = 'none';
+//            element.offsetHeight; // no need to store this anywhere, the reference is enough
+//            element.style.display = displayStyle;
+//        }
+    };
+
+    renderSlot_();
+</script>
+
+
+
+</body>
+</html>

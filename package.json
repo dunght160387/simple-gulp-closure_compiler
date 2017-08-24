@@ -1,0 +1,29 @@
+{
+  "name": "simple-gulp-closure_compiler",
+  "version": "1.0.0",
+  "private": false,
+  "devDependencies": {
+    "google-closure-compiler": "~20160208.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-flatmap": "^1.0.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-util": "^3.0.8",
+    "yargs": "^6.0.0"
+  },
+  "scripts": {
+    "dev": "http-server 0.0.0.0:9996 ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dunght160387/simple-gulp-closure_compiler.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dunght160387/simple-gulp-closure_compiler/issues"
+  },
+  "homepage": "https://github.com/dunght160387/simple-gulp-closure_compiler#readme",
+  "dependencies": {}
+}
